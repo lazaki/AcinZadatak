@@ -68,7 +68,14 @@
 ************************************
 */
 
-.main-div {
+#content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+
+}
+
+#main-div {
     display: inline-block;
     width: 300px;
     padding: 2em;
@@ -113,3 +120,12 @@
     font-size: 13px;
     text-align: center;
 }
+
+.selected {
+  border: 2px  solid green;
+}
+
+.unselected {
+  border:none;
+}
+

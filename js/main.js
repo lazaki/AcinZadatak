@@ -3,14 +3,27 @@ var url = 'http://brainpowerdesign.azurewebsites.net/ajax/korisnici.json';
 var ul = document.getElementById('data');
 var wrapper = document.getElementById('wrapper');
 var imgSrc = "https://boxchamp.io/assets/img/sign-up-profile-image.png";
-//var users = [];
+var selectedUsersArray = [];
+
+
+// $('.loader').show();
+// $.ajax({
+//     url: url,
+//     cache: false,
+//     complete: function () {
+//         $('.loader').hide();
+//     }
+// });
+
 
 fetch(url)
     .then((resp) => resp.json())
     .then(function (data) {
         users = data;
-        console.log(users);
+        //console.log(users);
         listAllUsers();
+        $('.loader').hide();
+
     })
     .catch(function (error) {
 
@@ -19,31 +32,52 @@ fetch(url)
 
 function listAllUsers() {
     users.map(function (user) {
-        if (user.Email === "") {
-            wrapper.innerHTML += '<div class="main-div">'
-                + '<img src=' + imgSrc + ' class="profile-img">'
-                + '<div class="profile-text">'
-                + '<h1 class="profile-name">' + user.Title + '</h1>'
-                + '<div class="profile-title">SmartEmail@Smart.rs</div>'
-                + '</div>'
-                + '</div>'
-        } else if (user.IsSiteAdmin) {
-            wrapper.innerHTML += '<div class="main-div">'
+        var email;
+        if (user.Email === '') {
+            email = "smart@smart.rs"
+        } else {
+            email = user.Email;
+        }
+
+        if (user.IsSiteAdmin) {
+            wrapper.innerHTML += '<div id="main-div" class="unselected" onClick=selectUsers(this,' + user.Id + ')>'
                 + '<img src= ' + imgSrc + ' class="profile-img">'
                 + '<div class="profile-text">'
                 + '<h1 class="profile-name">' + user.Title + '</h1>'
                 + '<div class="profile-job">Site Administrator</div>'
-                + '<div class="profile-title">' + user.Email + '</div>'
+                + '<div class="profile-title">' + email + '</div>'
                 + '</div>'
                 + '</div>'
         } else {
-            wrapper.innerHTML += '<div class="main-div">'
-                + '<img src= ' + imgSrc + ' class="profile-img">'
+            wrapper.innerHTML += '<div id="main-div" class="unselected" onClick=selectUsers(this,' + user.Id + ')>'
+                + '<img src=' + imgSrc + ' class="profile-img">'
                 + '<div class="profile-text">'
                 + '<h1 class="profile-name">' + user.Title + '</h1>'
-                + '<div class="profile-title">' + user.Email + '</div>'
+                + '<div class="profile-title">' + email + '</div>'
                 + '</div>'
                 + '</div>'
         }
     })
 }
+
+
+function selectUsers(el, userId) {
+
+    if (el.className == 'unselected') {
+        el.className = 'selected';
+    } else {
+        el.className = 'unselected';
+    }
+
+    console.log(el);
+
+
+    // users.reduce(function (acc, item) {
+    //     console.log(item);
+    //     console.log(acc);
+    // })
+
+
+}
+
+
