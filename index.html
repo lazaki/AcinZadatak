@@ -13,13 +13,24 @@
 <body>
     <div class="loader">Loading...</div>
 
-
-
     <div id="content">
-        <div id="wrapper"></div>
+        <div id="wrapper">
+            <div id="buttonDiv">
+                <button class='btnAdd' onClick='createGroup()'>UBACI U GRUPU</button>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span id="close" class="close">&times;</span>
+                    <p>Napravi grupu</p>
+                    <input type="text" name="grupa" value="">
+                    <button class="save">SACUVAJ</button>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-
+    </div>
 
     <script src="js/main.js"></script>
 </body>

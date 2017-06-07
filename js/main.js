@@ -75,56 +75,50 @@ function selectUsers(el, userId) {
             if (selectedUsersArray.indexOf(users[i]) === -1) {
                 selectedUsersArray.push(users[i]);
             } else {
-                selectedUsersArray.splice(i,1);
+                selectedUsersArray.splice(selectedUsersArray.indexOf(users[i]), 1);
             }
             console.log(selectedUsersArray);
         }
     }
 
+    showButton(selectedUsersArray);
+
+
+    // selectedUsersArray = users.filter(function (user) {
+    //     return userId === user.Id
+
+    //         if (selectedUsersArray.indexOf(user === -1)) {
+    //             selectedUsersArray.push(user);
+    //         } else {
+    //             selectedUsersArray.splice(selectedUsersArray.indexOf(user), 1);
+    //         }
+
+    // })
+    // console.log(selectedUsersArray);
+
 }
 
 
+function showButton(array) {
+    if (array.length !== 0) {
+        document.getElementById('buttonDiv').style.display = "block";
+        console.log('Pun niz');
+    } else {
+        document.getElementById('buttonDiv').style.display = "none";
+    }
 
 
+}
 
 
+function createGroup() {
 
+    var modal = document.getElementById("myModal");
+    var close = document.getElementById('close');
 
+    modal.style.display = "block";
+    close.onclick = function () {
+        modal.style.display = "none";
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // showButton(selectedUsersArray);
-
-// function showButton(array) {
-//     if (array.length !== 0) {
-//         document.getElementById('buttonDiv').style.display = "block";
-//         console.log('Pun niz');
-//     } else {
-//         document.getElementById('buttonDiv').style.display = "none";
-//     }
-// }

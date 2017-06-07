@@ -67,7 +67,6 @@
             USERS
 ************************************
 */
-
 #content {
     width: 80%;
     margin: 0 auto;
@@ -77,6 +76,7 @@
 
 #main-div {
     display: inline-block;
+    max-height: 320px;
     width: 300px;
     padding: 2em;
     background-color: #f2f2f2;
@@ -122,10 +122,115 @@
 }
 
 .selected {
-  border: 2px  solid green;
+  -webkit-box-shadow:inset 0px 0px 0px 5px green;
+    -moz-box-shadow:inset 0px 0px 0px 5px green;
+    box-shadow:inset 0px 0px 0px 5px green;
 }
 
 .unselected {
   border:none;
 }
 
+/* 
+************************************
+        BUTTON ADD USERS
+************************************
+*/
+#buttonDiv{
+  /*text-align: center;
+  padding: 5px;
+  display: none;
+  height: 50px;
+  background: red;
+  position: fixed;
+  bottom: 7%;
+  left: 40%;*/
+
+  border-radius: 6px;
+  text-align: center;
+  padding: 20px;
+  display: none;
+  background-color:rgba(183,44,44, 0.87);
+  position: fixed;
+  bottom: 7%;
+  left: 35%;
+  width: 30%;
+}
+
+#buttonDiv button {
+    background: #9e3233;
+    border: 1px solid #d87c7c;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;  
+    font-weight: bold;
+}
+
+
+/* 
+************************************
+        MODAL DISPLAY
+************************************
+*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color:rgba(183,44,44,0.87);
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #888;
+    text-align: center;
+    width: 50%;
+}
+.modal-content p{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white; 
+}
+
+.modal-content input {
+  display: block;
+  margin: 0 auto;
+  height: 25px;
+  width: 70%;
+}
+
+.save {
+    background: #9e3233;
+    border: 1px solid #d87c7c;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: white; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
