@@ -2,6 +2,7 @@ var url = 'http://brainpowerdesign.azurewebsites.net/ajax/korisnici.json';
 
 var ul = document.getElementById('data');
 var wrapper = document.getElementById('wrapper');
+var buttonDiv = document.getElementById('buttonDiv');
 var imgSrc = "https://boxchamp.io/assets/img/sign-up-profile-image.png";
 var selectedUsersArray = [];
 
@@ -69,15 +70,61 @@ function selectUsers(el, userId) {
         el.className = 'unselected';
     }
 
-    console.log(el);
-
-
-    // users.reduce(function (acc, item) {
-    //     console.log(item);
-    //     console.log(acc);
-    // })
-
+    for (var i = 0; i < users.length; i++) {
+        if (userId === users[i].Id) {
+            if (selectedUsersArray.indexOf(users[i]) === -1) {
+                selectedUsersArray.push(users[i]);
+            } else {
+                selectedUsersArray.splice(i,1);
+            }
+            console.log(selectedUsersArray);
+        }
+    }
 
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // showButton(selectedUsersArray);
+
+// function showButton(array) {
+//     if (array.length !== 0) {
+//         document.getElementById('buttonDiv').style.display = "block";
+//         console.log('Pun niz');
+//     } else {
+//         document.getElementById('buttonDiv').style.display = "none";
+//     }
+// }
