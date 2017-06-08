@@ -6,6 +6,11 @@ var buttonDiv = document.getElementById('buttonDiv');
 var imgSrc = "https://boxchamp.io/assets/img/sign-up-profile-image.png";
 var selectedUsersArray = [];
 
+var group = {
+    name: '',
+    users: []
+}
+
 
 // $('.loader').show();
 // $.ajax({
@@ -111,7 +116,7 @@ function showButton(array) {
 }
 
 
-function createGroup() {
+function openModal() {
 
     var modal = document.getElementById("myModal");
     var close = document.getElementById('close');
@@ -122,3 +127,12 @@ function createGroup() {
     }
 }
 
+
+
+function createGroup() {
+    var groups = [];
+    group.name = document.getElementsByName('grupa').value;
+    group.users = selectedUsersArray;
+    groups.push(group);
+    localStorage.setItem('groups', JSON.stringify(groups));
+}
